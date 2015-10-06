@@ -6,6 +6,11 @@ It follows the same basic pattern as [fn-salesforce](https://github.com/OpenFn/f
   - allow user to fetch meta-data from DHIS2 in the form of [JSON-schema](JSON-schema.org)
   - receive JSON data from user and run inserts/updates/upserts on DHIS2, based a `credentials.json` file
 
+Our API
+-----------------------------------
+[fn-salesforce api](https://github.com/OpenFn/fn-salesforce/blob/master/lib/fn/salesforce.rb)
+
+
 Resources
 ----------------------
 1. [live hosted DHIS2 demo](https://apps.dhis2.org/demo/dhis-web-dashboard-integration/index.action): un=admin,pw=district;
