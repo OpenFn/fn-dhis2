@@ -6,8 +6,20 @@ It follows the same basic pattern as [fn-salesforce](https://github.com/OpenFn/f
   - allow user to fetch meta-data from DHIS2 in the form of [JSON-schema](JSON-schema.org)
   - receive JSON data from user and run inserts/updates/upserts on DHIS2, based a `credentials.json` file
 
+Stu's Thoughts:
+-------------------
+1. Start with "fn-push" given some JSON, try to insert in DHIS2.
+2. Then with "fn-describe" fetch JSON scema for a given object in DHIS2.
+3. Finally, "fn-prepare" flattens the JSON push and maps the dependencies — this is ready to be inserted piece by piece.
+
 Our API
 -----------------------------------
+must work with basic actions:
+
+  fn-describe (takes credentials and an object name, returns a destination schema)
+  fn-prepare (takes a JSON payload and a destination schema, returns a "plan")
+  fn-push (takes a plan and credentials, inserts records into DHIS2)
+
 [fn-salesforce api](https://github.com/OpenFn/fn-salesforce/blob/master/lib/fn/salesforce.rb)
 
 
@@ -19,8 +31,4 @@ Resources
  
 ***WIP...***
 
-Stu's Thoughts:
--------------------
-1. Start with "fn-push" given some JSON, try to insert in DHIS2.
-2. Then with "fn-describe" fetch JSON scema for a given object in DHIS2.
-3. Finally, "fn-prepare" flattens the JSON push and maps the dependencies — this is ready to be inserted piece by piece.
+
