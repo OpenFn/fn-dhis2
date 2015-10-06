@@ -18,3 +18,9 @@ Resources
 3. [DHIS2 data-values api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s11.html);
  
 ***WIP...***
+
+Stu's Thoughts:
+-------------------
+1. Start with "fn-push" given some JSON, try to insert in DHIS2.
+2. Then with "fn-describe" fetch JSON scema for a given object in DHIS2.
+3. Finally, "fn-prepare" flattens the JSON push and maps the dependencies — this is ready to be inserted piece by piece.
