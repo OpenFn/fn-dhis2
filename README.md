@@ -15,10 +15,9 @@ Stu's Thoughts:
 Our API
 -----------------------------------
 must work with basic actions:
-
-  fn-describe (takes credentials and an object name, returns a destination schema)
-  fn-prepare (takes a JSON payload and a destination schema, returns a "plan")
-  fn-push (takes a plan and credentials, inserts records into DHIS2)
+1. fn-describe (takes credentials and an object name, returns a destination schema)
+2. fn-prepare (takes a JSON payload and a destination schema, returns a "plan")
+3. fn-push (takes a plan and credentials, inserts records into DHIS2)
 
 [fn-salesforce api](https://github.com/OpenFn/fn-salesforce/blob/master/lib/fn/salesforce.rb)
 
