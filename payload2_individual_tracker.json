@@ -1,0 +1,37 @@
+// WIP - this is data from an ODK form that registers new beneficiaries and enters their name, height, and weight.
+{
+	"vV9UWAZohSf": 8.5, //weight in kg
+	"GieVkTxp4HH": 67, //height in cm
+	"SWfdB5lX0fk": "no" //pregnant (yes/no)
+}
+
+// event sample
+{
+  "program": "eBAyeGv0exc",
+  "orgUnit": "DiszpKrYNg8",
+  "eventDate": "2013-05-17",
+  "status": "COMPLETED",
+  "storedBy": "admin",
+  "coordinate": {
+    "latitude": "59.8",
+    "longitude": "10.9"
+  },
+  "dataValues": [
+    { "dataElement": "qrur9Dvnyt5", "value": "22" },
+    { "dataElement": "oZg33kd9taw", "value": "Male" },
+    { "dataElement": "msodh3rEMJa", "value": "2013-05-18" }
+  ]
+}
+
+// dataset sample
+{
+  "dataSet": "pBOMPrpg1QX",
+  "completeData": "2014-02-03",
+  "period": "201401",
+  "orgUnit": "DiszpKrYNg8",
+  "dataValues": [
+    { "dataElement": "f7n9E0hX8qk", "value": "9144785890" },
+    { "dataElement": "Ix2HsbDMLea", "value": "2" },
+    { "dataElement": "eY5ehpbEsB7", "value": "3" }
+  ]
+}
