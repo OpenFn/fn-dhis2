@@ -1,6 +1,12 @@
 # fn-dhis2
-This is an adapter for DHIS2, intended to be used with OpenFn, but built to stand alone. This adapter will allow users to insert events and data values to a DHIS2 system using JSON.
+This is an adapter for DHIS2, intended to be used with OpenFn, but built to stand alone. This adapter will allow users to insert data values to a DHIS2 system using JSON from OpenFn's core and the DHIS2 WebApi.
 
+DHIS2
+-----------------
+DHIS 2 is a tool for collection, validation, analysis, and presentation of aggregate statistical data, tailored (but not limited) to integrated health information management activities. It is a generic tool rather than a pre-configured database application, with an open meta-data model and a flexible user interface that allows the user to design the contents of a specific information system without the need for programming. DHIS2 and upwards is a modular web-based software package built with free and open source Java frameworks.
+
+This adapter
+----------------------
 It follows the same basic pattern as [fn-salesforce](https://github.com/OpenFn/fn-salesforce):
 1. fn-describe (takes `credentials.json` and an object name, returns a destination schema in the form of [JSON-schema](JSON-schema.org))
 2. fn-prepare (takes a JSON payload and a destination schema, returns a "plan")
