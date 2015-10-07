@@ -38,6 +38,8 @@ Resources
 2. [DHIS2 events api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s13.html)
 3. [DHIS2 metadata api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s06.html): this is needed to fetch JSON-schema compliant schemas for objects that we plan to create or update. Works similar to the "describe" method
 
+[DHIS2 as a "tracker" system with individual beneficiaries](https://www.dhis2.org/individual-data-records) - explains objective #3.
+
 See DHIS2 in action!
 --------------------
 1. [live hosted DHIS2 demo](https://apps.dhis2.org/demo/dhis-web-dashboard-integration/index.action): un=admin,pw=district;
