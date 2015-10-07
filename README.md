@@ -17,8 +17,8 @@ these basic actions are defined in [fn-salesforce/lib/salesforce.rb](https://git
 
 Objectives
 -----------------------------------
-1. Given `payload1.json`, create new `data values` in the `blah` dataset.
-2. Given `payload2.json`, create a new `dataset` with new `data values`.
+1. Given `payload1_aggregate.json`, create a new `dataset` with new `data values`.
+2. Given `payload2_individual_tracker.json`, create new `data values`.
 
 n.b.: "A data value set represents a set of data values which have a logical relationship, usually from being captured off the same data entry form."
 
