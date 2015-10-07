@@ -15,6 +15,12 @@ fn-dhis2 should abide by the same API calls:
 
 these basic actions are defined in [fn-salesforce/lib/salesforce.rb](https://github.com/OpenFn/fn-salesforce/blob/master/lib/fn/salesforce.rb))
 
+Objectives
+-----------------------------------
+1. Given `payload1.json`, create new data values in the `blah` dataset.
+2. Given `payload2.json`, create a new dataset with new data values.
+
+
 Stu's Thoughts:
 -------------------
 1. Start with "fn-push" given some JSON, try to insert in DHIS2 using the webAPI.
