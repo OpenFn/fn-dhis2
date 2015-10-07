@@ -40,6 +40,7 @@ Resources
 3. [DHIS2 metadata api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s06.html): this is needed to fetch JSON-schema compliant schemas for objects that we plan to create or update. Works similar to the "describe" method
 
 [DHIS2 as a "tracker" system with individual beneficiaries](https://www.dhis2.org/individual-data-records) - explains objective #3.
+[How adding data to the tracker works!](https://www.npmjs.com/package/dhis2-tracker-populator)
 
 See DHIS2 in action!
 --------------------
