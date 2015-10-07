@@ -3,7 +3,7 @@ This is an adapter for DHIS2, intended to be used with OpenFn, but built to stan
 
 DHIS2
 -----------------
-DHIS 2 is a tool for collection, validation, analysis, and presentation of aggregate statistical data, tailored (but not limited) to integrated health information management activities. It is a generic tool rather than a pre-configured database application, with an open meta-data model and a flexible user interface that allows the user to design the contents of a specific information system without the need for programming. DHIS2 and upwards is a modular web-based software package built with free and open source Java frameworks.
+DHIS 2 is a tool for collection, validation, analysis, and presentation of aggregate statistical data, tailored (but not limited) to integrated health information management activities. It is a generic tool rather than a pre-configured database application, with an open meta-data model and a flexible user interface that allows the user to design the contents of a specific information system without the need for programming. For this reason, the schema of every DHIS2 system, including the important `data elements` and `data sets` will be different.
 
 This adapter
 ----------------------
