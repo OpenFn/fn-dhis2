@@ -33,6 +33,7 @@ Stu's Thoughts:
 Resources
 ----------------------
 [DHIS2 Glossary](https://www.dhis2.org/doc/snapshot/en/user/html/go01.html)
+
 1. [DHIS2 data-values api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s11.html);
 2. [DHIS2 events api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s13.html)
 3. [DHIS2 metadata api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s06.html): this is needed to fetch JSON-schema compliant schemas for objects that we plan to create or update. Works similar to the "describe" method
