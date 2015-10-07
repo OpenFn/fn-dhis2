@@ -17,8 +17,8 @@ these basic actions are defined in [fn-salesforce/lib/salesforce.rb](https://git
 
 Objectives
 -----------------------------------
-1. Given `payload1.json`, create new data values in the `blah` dataset.
-2. Given `payload2.json`, create a new dataset with new data values.
+1. Given `payload1.json`, create new `data values` in the `blah` dataset.
+2. Given `payload2.json`, create a new `dataset` with new `data values`.
 
 
 Stu's Thoughts:
