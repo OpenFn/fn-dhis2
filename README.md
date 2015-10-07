@@ -19,6 +19,7 @@ Objectives
 -----------------------------------
 1. Given `payload1_aggregate.json`, create a new `dataset` with new `data values`.
 2. Given `payload2_individual_tracker.json`, create new `data values`.
+3. Given `payload3_event_with_attendees.json`, create a new `event` with participant registration data.
 
 n.b.: "A data value set represents a set of data values which have a logical relationship, usually from being captured off the same data entry form."
 
@@ -33,7 +34,8 @@ Resources
 ----------------------
 [DHIS2 Glossary](https://www.dhis2.org/doc/snapshot/en/user/html/go01.html)
 1. [DHIS2 data-values api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s11.html);
-2. [DHIS2 metadata api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s06.html): this is needed to fetch JSON-schema compliant schemas for objects that we plan to create or update. Works similar to the "describe" method
+2. [DHIS2 events api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s13.html)
+3. [DHIS2 metadata api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s06.html): this is needed to fetch JSON-schema compliant schemas for objects that we plan to create or update. Works similar to the "describe" method
 
 See DHIS2 in action!
 --------------------
