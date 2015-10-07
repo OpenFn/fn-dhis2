@@ -9,6 +9,7 @@ This adapter
 ----------------------
 Use [fn-salesforce](https://github.com/OpenFn/fn-salesforce) as a boilerplate for this `fn-dhis2` adapter.
 fn-dhis2 should abide by the same API calls:
+
 1. fn-describe (takes `credentials.json` and an object name, returns a destination schema in the form of [JSON-schema](JSON-schema.org))
 2. fn-prepare (takes a `destination_payload` from `open-mapper` and a destination schema, and returns a `plan` which can be directly loaded into DHIS2.)
 3. fn-push (takes a `plan` and `credentials.json`, inserts data values into DHIS2)
