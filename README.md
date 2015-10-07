@@ -20,6 +20,8 @@ Objectives
 1. Given `payload1.json`, create new `data values` in the `blah` dataset.
 2. Given `payload2.json`, create a new `dataset` with new `data values`.
 
+n.b.: "A data value set represents a set of data values which have a logical relationship, usually from being captured off the same data entry form."
+
 
 Stu's Thoughts:
 -------------------
