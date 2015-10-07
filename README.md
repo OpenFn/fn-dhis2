@@ -7,25 +7,28 @@ DHIS 2 is a tool for collection, validation, analysis, and presentation of aggre
 
 This adapter
 ----------------------
-It follows the same basic pattern as [fn-salesforce](https://github.com/OpenFn/fn-salesforce):
+Use [fn-salesforce](https://github.com/OpenFn/fn-salesforce) as a boilerplate for this `fn-dhis2` adapter.
+fn-dhis2 should abide by the same API calls:
 1. fn-describe (takes `credentials.json` and an object name, returns a destination schema in the form of [JSON-schema](JSON-schema.org))
-2. fn-prepare (takes a JSON payload and a destination schema, returns a "plan")
-3. fn-push (takes a plan and `credentials.json`, inserts records into DHIS2)
+2. fn-prepare (takes a `destination_payload` from `open-mapper` and a destination schema, and returns a `plan` which can be directly loaded into DHIS2.)
+3. fn-push (takes a `plan` and `credentials.json`, inserts data values into DHIS2)
 
 these basic actions are defined in [fn-salesforce/lib/salesforce.rb](https://github.com/OpenFn/fn-salesforce/blob/master/lib/fn/salesforce.rb))
 
 Stu's Thoughts:
 -------------------
-1. Start with "fn-push" given some JSON, try to insert in DHIS2.
+1. Start with "fn-push" given some JSON, try to insert in DHIS2 using the webAPI.
 2. Then with "fn-describe" fetch JSON scema for a given object in DHIS2.
-3. Finally, "fn-prepare" flattens the JSON push and maps the dependencies — this is ready to be inserted piece by piece.
+3. Finally, "fn-prepare" flattens the `destination_payload.json` and maps the dependencies (if necessary) so the output is ready to be inserted piece by piece to DHIS2.
 
 Resources
 ----------------------
+[DHIS2 Glossary](https://www.dhis2.org/doc/snapshot/en/user/html/go01.html)
+1. [DHIS2 data-values api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s11.html);
+2. [DHIS2 metadata api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s06.html): this is needed to fetch JSON-schema compliant schemas for objects that we plan to create or update. Works similar to the "describe" method
 
-A. [DHIS2 Glossary](https://www.dhis2.org/doc/snapshot/en/user/html/go01.html)
-
+See DHIS2 in action!
+--------------------
 1. [live hosted DHIS2 demo](https://apps.dhis2.org/demo/dhis-web-dashboard-integration/index.action): un=admin,pw=district;
-2. [DHIS2 metadata api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s06.html): this is needed to fetch JSON-schema compliant schemas for objects that we plan to create or update. Works similar to the "describe" method in [fn-salesforce](https://github.com/OpenFn/fn-salesforce#describe);
-3. [DHIS2 data-values api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s11.html);
-4. [DHIS2 events api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s13.html#d5e1579);
+2. View, create, and edit [data elements](https://apps.dhis2.org/demo/dhis-web-maintenance-datadictionary/dataElement.action) in a DHIS2 demo system
+3. View, create, and edit [data sets](https://apps.dhis2.org/demo/dhis-web-maintenance-dataset/dataSet.action) in a DHIS2 demo system. 
