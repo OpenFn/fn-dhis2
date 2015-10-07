@@ -42,7 +42,11 @@ Resources
 [DHIS2 as a "tracker" system with individual beneficiaries](https://www.dhis2.org/individual-data-records) - explains objective #3.
 [DHIS2 tracker documentation](https://www.dhis2.org/doc/snapshot/en/user/html/ch29.html)
 [How adding data to the tracker works!](https://www.npmjs.com/package/dhis2-tracker-populator)
+
+Open-source integrations to DHIS2 from Json Xform data:
+----------------------------------------------------------
 [How CommCare integrates to DHIS2](http://commcare-hq.readthedocs.org/en/latest/dhis2_integration.html#implementation)
+=> [Source for CommCare-DHIS2 integration](https://github.com/dimagi/commcare-hq/tree/ea85d66706068ffcc8d7440f061df3b30d2aeb1f/custom/dhis2)
 
 See DHIS2 in action!
 --------------------
