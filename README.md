@@ -42,6 +42,7 @@ Resources
 [DHIS2 as a "tracker" system with individual beneficiaries](https://www.dhis2.org/individual-data-records) - explains objective #3.
 [DHIS2 tracker documentation](https://www.dhis2.org/doc/snapshot/en/user/html/ch29.html)
 [How adding data to the tracker works!](https://www.npmjs.com/package/dhis2-tracker-populator)
+[Tracked entity instance management](https://www.dhis2.org/doc/snapshot/en/user/html/ch30s34.html) - this is how DHIS2 handles individuals.
 
 Open-source integrations to DHIS2 from Json Xform data:
 ----------------------------------------------------------
