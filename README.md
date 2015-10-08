@@ -30,10 +30,10 @@ Resources
 2. [DHIS2 events api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s13.html)
 3. [DHIS2 metadata api](https://www.dhis2.org/doc/snapshot/en/developer/html/ch01s06.html): this is needed to fetch JSON-schema compliant schemas for objects that we plan to create or update. Works similar to the "describe" method
 
-[DHIS2 as a "tracker" system with individual beneficiaries](https://www.dhis2.org/individual-data-records) - explains objective #3.
-[DHIS2 tracker documentation](https://www.dhis2.org/doc/snapshot/en/user/html/ch29.html)
-[How adding data to the tracker works!](https://www.npmjs.com/package/dhis2-tracker-populator)
-[Tracked entity instance management](https://www.dhis2.org/doc/snapshot/en/user/html/ch30s34.html) - this is how DHIS2 handles individuals.
+4. [DHIS2 as a "tracker" system with individual beneficiaries](https://www.dhis2.org/individual-data-records) - explains objective #3.
+5. [DHIS2 tracker documentation](https://www.dhis2.org/doc/snapshot/en/user/html/ch29.html)
+6. [How adding data to the tracker works!](https://www.npmjs.com/package/dhis2-tracker-populator)
+7. [Tracked entity instance management](https://www.dhis2.org/doc/snapshot/en/user/html/ch30s34.html) - this is how DHIS2 handles individuals.
 
 Open-source integrations to DHIS2 from Json Xform data:
 ----------------------------------------------------------
