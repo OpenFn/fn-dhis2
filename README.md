@@ -50,6 +50,9 @@ Prototype
 ---------
 
 The prototype can be run using 
-``` ./prototype/prototype.rb
+```
+./prototype/prototype.rb
+```
+
 
 For now, all it does is take the raw payload2, prepare it and push it - everything is cheap and nasty for now.
