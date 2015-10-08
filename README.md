@@ -45,3 +45,11 @@ See DHIS2 in action!
 1. [live hosted DHIS2 demo](https://apps.dhis2.org/demo/dhis-web-dashboard-integration/index.action): un=admin,pw=district;
 2. View, create, and edit [data elements](https://apps.dhis2.org/demo/dhis-web-maintenance-datadictionary/dataElement.action) in a DHIS2 demo system
 3. View, create, and edit [data sets](https://apps.dhis2.org/demo/dhis-web-maintenance-dataset/dataSet.action) in a DHIS2 demo system. 
+
+Prototype
+---------
+
+The prototype can be run using 
+``` ./prototype/prototype.rb
+
+For now, all it does is take the raw payload2, prepare it and push it - everything is cheap and nasty for now.
