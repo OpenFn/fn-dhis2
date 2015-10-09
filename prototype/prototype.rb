@@ -90,6 +90,31 @@ class DataSet
   end
 end
 
+class AnonymousEvent
+  def self.describe(credentials, dataset_id)
+    JSON.generate({})
+  end
+
+  def self.prepare(schema, message)
+    message_as_hash = JSON.parse(message)
+    event = message_as_hash["event"]
+    raw_data_values = event.delete "dataValues"
+    transformed_data_values = raw_data_values.inject([]) do |memo, (k,v)|
+      memo << {"dataElement" => k, "value" => v}
+    end
+    JSON.generate(event.merge("dataValues" => transformed_data_values))
+    JSON.generate(event)
+  end
+
+  def self.push(credentials, message)
+    connection = build_connection(JSON.parse(credentials, symbolize_names: true))
+    response = connection.post  do |req|
+      req.url '/demo/api/events'
+      req.headers['Content-Type'] = 'application/json'
+      req.body = message
+    end
+  end
+end
 # def get_metadata(credentials)
 #   connection = build_connection(JSON.parse(credentials, symbolize_names: true))
 #   response = connection.get '/demo/api/metaData.json?dataset=true'
@@ -97,6 +122,9 @@ end
 # end
 
 credentials = IO.read(File.join(File.dirname(__FILE__), "..", "credentials.json"))
+
+puts "Starting with tracked entities"
+puts
 raw_payload2 = IO.read(File.join(File.dirname(__FILE__), "..", "raw_destination_payload2.json"))
 schema = TrackedEntity.describe(credentials, "doesnotmatter") # Not really a schema at the moment, but for naming consistency
 
@@ -110,6 +138,10 @@ puts "New resource location is #{response.headers["location"]}"
 
 #  Now try and import datavalues
 
+puts
+puts "Starting with data sets"
+puts
+
 raw_payload1 = IO.read(File.join(File.dirname(__FILE__), "..", "raw_destination_payload1.json"))
 destination_payload1 = IO.read(File.join(File.dirname(__FILE__), "..", "destination_payload1.json"))
 
@@ -122,3 +154,23 @@ puts
 puts "Data Set"
 puts "Result of push is HTTP #{response.status}"
 p JSON.parse(response.body)
+
+# AnonymousEvents next - first a standalone event
+#
+
+puts
+puts "Starting with anonymous events"
+puts
+
+raw_payload3 = IO.read(File.join(File.dirname(__FILE__), "..", "raw_destination_payload3.json"))
+destination_payload3 = IO.read(File.join(File.dirname(__FILE__), "..", "destination_payload3.json"))
+
+schema = AnonymousEvent.describe(credentials, "doesnotmatter")
+payload3 = AnonymousEvent.prepare(schema, raw_payload3)
+response =  AnonymousEvent.push(credentials, payload3)
+
+puts
+puts "AnonymousEvent without registration"
+puts "Result of push is HTTP #{response.status}"
+puts "New event location is #{response.headers["location"]}"
+p response.body
