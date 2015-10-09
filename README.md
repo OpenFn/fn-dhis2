@@ -54,5 +54,17 @@ The prototype can be run using
 ./prototype/prototype.rb
 ```
 
+The prototype was intended as a proof of concept / testbed for interactions between an external system and DHIS2, using the pattern employed by fn-salesforce.
 
-For now, all it does is take the raw payload2, prepare it and push it - everything is cheap and nasty for now.
+It contains really crude code intended to validate some expected use cases and also to start to identify common areas between the use cases - so that we can start collapsing the code. There are four classes - each class maps to a use case, and, in the case of AggregatedEvent, some reuse of existing classes takes place.
+
+The classes expose three methods - .describe, .prepare and .push (functionality as per the `This adapter` section above): For every case, except AggregatedEvent, .describe and .prepare are mostly there for preserving the interface. AggregatedEvent has, however, proved to be complex enough to benefit from the describe/prepare model (ironically enough - neither of these endpoints have been written in the prototype yet).
+
+Most of the effort spent in writing the prototype has been getting to grips with the nuances of DHIS 2. In terms of coding time, I would estimate it represents an hour or two's worth of effort at most - the rest of the time was spent exploring the DHIS 2 api and domain. The last item of difficulty that remains would be to start abstracting components of the individual use cases - but that is out of scope for the prototype.
+
+Next Steps
+----------
+
+The next step woudl be to start building production-ready code extending out of the rudimentary proofs found in the prototype code. What the prototype does not attemp to do is provide unified describe, prepare and push endpoints that can address all four use cases and more.This is, admittedly,  not trivial but, based on the results of the prototype, well within reach.
+
+It is recommended *not* to use the DHIS2 demo server for testing. While it is a useful service, it is a public one and therefore this will produce erratic results.
