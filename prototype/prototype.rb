@@ -115,11 +115,64 @@ class AnonymousEvent
     end
   end
 end
-# def get_metadata(credentials)
-#   connection = build_connection(JSON.parse(credentials, symbolize_names: true))
-#   response = connection.get '/demo/api/metaData.json?dataset=true'
-#   File.open(File.join(File.dirname(__FILE__), "..", "metadata_dataset.out"), "w") { |f| f.write response.body }
-# end
+
+class AggregatedEvent
+  def self.describe
+  end
+
+  def self.push(credentials, message)
+    message_as_hash = JSON.parse(message)
+    raw_event = message_as_hash["event"]
+    associated_tracked_entities = raw_event["instances"].inject([]) do |memo, instance_set|
+      raw_instance_data = JSON.generate({ raw_event["trackedEntity"] => instance_set })
+      schema = TrackedEntity.describe(credentials, "doesnotmatter")
+      payload = TrackedEntity.prepare(schema, raw_instance_data)
+      response = TrackedEntity.push(credentials, payload)
+      data = JSON.parse(response.body)
+      memo << data["response"]["reference"]
+    end
+    associated_tracked_entities.each do |ate_id|
+      data = {
+        "trackedEntityInstance" => ate_id,
+        "orgUnit" => raw_event["orgUnit"],
+        "program" => raw_event["program"]
+      }
+
+      connection = build_connection(JSON.parse(credentials, symbolize_names: true))
+      response = connection.post  do |req|
+        req.url '/demo/api/enrollments'
+        req.headers['Content-Type'] = 'application/json'
+        req.body = JSON.generate(data)
+      end
+
+      puts "/////////////////////////////////////////////////////////////////////////////////////"
+      p data
+      p response
+      puts "/////////////////////////////////////////////////////////////////////////////////////"
+      linked_event = {
+        "event" => {
+          "program" => raw_event["program"],
+          "programStage" => raw_event["programStage"],
+          "orgUnit" => raw_event["orgUnit"],
+          "eventDate" => raw_event["eventDate"],
+          "status" => raw_event["status"],
+          "storedBy" => raw_event["storedBy"],
+          "coordinate" => raw_event["coordinate"],
+          "trackedEntityInstance" => ate_id,
+          "dataValues" => {}
+        }
+      }
+
+      schema = AnonymousEvent.describe(credentials, "doesnotmatter")
+      payload = AnonymousEvent.prepare(schema, JSON.generate(linked_event))
+      response =  AnonymousEvent.push(credentials, payload)
+
+      puts "**************************************************************************************"
+      p response
+      puts "***************************************************************************************"
+    end
+  end
+end
 
 credentials = IO.read(File.join(File.dirname(__FILE__), "..", "credentials.json"))
 
@@ -135,6 +188,7 @@ puts
 puts "Tracked Entity"
 puts "Result of push is HTTP #{response.status}"
 puts "New resource location is #{response.headers["location"]}"
+p JSON.parse(response.body)
 
 #  Now try and import datavalues
 
@@ -174,3 +228,10 @@ puts "AnonymousEvent without registration"
 puts "Result of push is HTTP #{response.status}"
 puts "New event location is #{response.headers["location"]}"
 p response.body
+
+puts
+puts "Starting with an aggregated event"
+puts
+
+raw_payload4 = IO.read(File.join(File.dirname(__FILE__), "..", "raw_destination_payload4.json"))
+AggregatedEvent.push(credentials, raw_payload4)
